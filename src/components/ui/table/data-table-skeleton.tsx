@@ -5,7 +5,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from '@/components/ui/table';
 import { ScrollArea, ScrollBar } from '../scroll-area';
 
@@ -14,7 +14,7 @@ export function DataTableSkeleton({
   rowCount = 10,
   searchableColumnCount = 0,
   filterableColumnCount = 0,
-  showViewOptions = false
+  showViewOptions = false,
 }) {
   return (
     <div className='flex flex-1 flex-col space-y-3 overflow-auto'>
@@ -23,13 +23,13 @@ export function DataTableSkeleton({
           <div className='flex flex-1 items-center space-x-2 space-y-4'>
             {searchableColumnCount > 0
               ? Array.from({ length: searchableColumnCount }).map((_, i) => (
-                  <Skeleton key={i} className='h-10 w-[150px] lg:w-[250px]' />
-                ))
+                <Skeleton key={i} className='h-10 w-[150px] lg:w-[250px]' />
+              ))
               : null}
             {filterableColumnCount > 0
               ? Array.from({ length: filterableColumnCount }).map((_, i) => (
-                  <Skeleton key={i} className='h-10 w-[70px] border-dashed' />
-                ))
+                <Skeleton key={i} className='h-10 w-[70px] border-dashed' />
+              ))
               : null}
           </div>
           {showViewOptions ? (

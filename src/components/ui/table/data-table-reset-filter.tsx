@@ -8,7 +8,7 @@ type DataTableResetFilterProps = {
 
 export function DataTableResetFilter({
   isFilterActive,
-  onReset
+  onReset,
 }: DataTableResetFilterProps) {
   return (
     <>

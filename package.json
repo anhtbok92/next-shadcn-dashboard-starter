@@ -1,13 +1,9 @@
 {
-  "name": "next-shadcn-dashboard-starter",
+  "name": "next-boilerplate-app-router",
   "version": "1.0.0",
   "private": true,
-  "author": {
-    "name": "Kiran",
-    "url": "https://github.com/Kiranism"
-  },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

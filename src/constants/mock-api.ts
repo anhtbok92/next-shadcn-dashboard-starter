@@ -27,6 +27,7 @@ export const fakeProducts = {
   // Initialize with sample data
   initialize() {
     const sampleProducts: Product[] = [];
+
     function generateRandomProductData(id: number): Product {
       const categories = [
         'Electronics',
@@ -36,7 +37,7 @@ export const fakeProducts = {
         'Groceries',
         'Books',
         'Jewelry',
-        'Beauty Products'
+        'Beauty Products',
       ];
 
       return {
@@ -49,7 +50,7 @@ export const fakeProducts = {
         price: parseFloat(faker.commerce.price({ min: 5, max: 500, dec: 2 })),
         photo_url: `https://api.slingacademy.com/public/sample-products/${id}.png`,
         category: faker.helpers.arrayElement(categories),
-        updated_at: faker.date.recent().toISOString()
+        updated_at: faker.date.recent().toISOString(),
       };
     }
 
@@ -64,7 +65,7 @@ export const fakeProducts = {
   // Get all products with optional category filtering and search
   async getAll({
     categories = [],
-    search
+    search,
   }: {
     categories?: string[];
     search?: string;
@@ -81,7 +82,7 @@ export const fakeProducts = {
     // Search functionality across multiple fields
     if (search) {
       products = matchSorter(products, search, {
-        keys: ['name', 'description', 'category']
+        keys: ['name', 'description', 'category'],
       });
     }
 
@@ -93,7 +94,7 @@ export const fakeProducts = {
     page = 1,
     limit = 10,
     categories,
-    search
+    search,
   }: {
     page?: number;
     limit?: number;
@@ -104,7 +105,7 @@ export const fakeProducts = {
     const categoriesArray = categories ? categories.split('.') : [];
     const allProducts = await this.getAll({
       categories: categoriesArray,
-      search
+      search,
     });
     const totalProducts = allProducts.length;
 
@@ -123,7 +124,7 @@ export const fakeProducts = {
       total_products: totalProducts,
       offset,
       limit,
-      products: paginatedProducts
+      products: paginatedProducts,
     };
   },
 
@@ -137,7 +138,7 @@ export const fakeProducts = {
     if (!product) {
       return {
         success: false,
-        message: `Product with ID ${id} not found`
+        message: `Product with ID ${id} not found`,
       };
     }
 
@@ -148,9 +149,9 @@ export const fakeProducts = {
       success: true,
       time: currentTime,
       message: `Product with ID ${id} found`,
-      product
+      product,
     };
-  }
+  },
 };
 
 // Initialize sample products

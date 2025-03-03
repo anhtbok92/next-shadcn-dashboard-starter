@@ -5,7 +5,7 @@ import Image from 'next/image';
 import * as React from 'react';
 import Dropzone, {
   type DropzoneProps,
-  type FileRejection
+  type FileRejection,
 } from 'react-dropzone';
 import { toast } from 'sonner';
 
@@ -109,7 +109,7 @@ export function FileUploader(props: FileUploaderProps) {
 
   const [files, setFiles] = useControllableState({
     prop: valueProp,
-    onChange: onValueChange
+    onChange: onValueChange,
   });
 
   const onDrop = React.useCallback(
@@ -126,7 +126,7 @@ export function FileUploader(props: FileUploaderProps) {
 
       const newFiles = acceptedFiles.map((file) =>
         Object.assign(file, {
-          preview: URL.createObjectURL(file)
+          preview: URL.createObjectURL(file),
         })
       );
 
@@ -146,7 +146,7 @@ export function FileUploader(props: FileUploaderProps) {
         updatedFiles.length <= maxFiles
       ) {
         const target =
-          updatedFiles.length > 0 ? `${updatedFiles.length} files` : `file`;
+          updatedFiles.length > 0 ? `${updatedFiles.length} files` : 'file';
 
         toast.promise(onUpload(updatedFiles), {
           loading: `Uploading ${target}...`,
@@ -154,7 +154,7 @@ export function FileUploader(props: FileUploaderProps) {
             setFiles([]);
             return `${target} uploaded`;
           },
-          error: `Failed to upload ${target}`
+          error: `Failed to upload ${target}`,
         });
       }
     },
@@ -229,7 +229,7 @@ export function FileUploader(props: FileUploaderProps) {
                 </div>
                 <div className='space-y-px'>
                   <p className='font-medium text-muted-foreground'>
-                    Drag {`'n'`} drop files here, or click to select files
+                    Drag {'\'n\''} drop files here, or click to select files
                   </p>
                   <p className='text-sm text-muted-foreground/70'>
                     You can upload

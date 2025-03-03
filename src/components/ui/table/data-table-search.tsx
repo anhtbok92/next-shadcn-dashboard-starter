@@ -44,7 +44,7 @@ export function DataTableSearch({
   searchKey,
   searchQuery,
   setSearchQuery,
-  setPage
+  setPage,
 }: DataTableSearchProps) {
   const [isLoading, startTransition] = useTransition();
 

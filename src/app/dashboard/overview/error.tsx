@@ -1,16 +1,19 @@
 'use client';
 
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { AlertCircle } from 'lucide-react';
-
-export default function OverviewError({ error }: { error: Error }) {
+const OverViewErrorPage = ({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) => {
   return (
-    <Alert variant='destructive'>
-      <AlertCircle className='h-4 w-4' />
-      <AlertTitle>Error</AlertTitle>
-      <AlertDescription>
-        Failed to load statistics: {error.message}
-      </AlertDescription>
-    </Alert>
+    <div className='flex flex-col items-center justify-center'>
+      <h1>Đã có lỗi xảy ra!</h1>
+      <p>{error.message}</p>
+      <button onClick={() => reset()}>Thử lại</button>
+    </div>
   );
-}
+};
+
+export default OverViewErrorPage;
